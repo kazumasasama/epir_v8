@@ -3,12 +3,15 @@
     <b-navbar type="light" variant="light">
       <div class="container">
         <div class="logo">
-          <img alt="epiR logo" src="../assets/epiRLogo70x40.png" />
+          <router-link to="/"
+            ><img alt="epiR logo" src="../assets/epiRLogo70x40.png"
+          /></router-link>
         </div>
         <b-navbar-nav class="nav">
           <b-nav-item class="nav-item1">
             <router-link to="/">メニュー選択</router-link> |
-            <router-link to="/event">ご予約カレンダー</router-link>
+            <router-link to="/event">ご予約カレンダー</router-link> |
+            <router-link to="/customers">顧客一覧</router-link>
           </b-nav-item>
           <!-- Navbar dropdowns -->
           <b-nav-item-dropdown text="言語設定" right>
@@ -17,8 +20,12 @@
           </b-nav-item-dropdown>
 
           <b-nav-item-dropdown text="アカウント" right>
-            <b-dropdown-item href="#">Account</b-dropdown-item>
-            <b-dropdown-item href="#">Settings</b-dropdown-item>
+            <b-dropdown-item>
+              <router-link to="/customer">アカウント</router-link>
+            </b-dropdown-item>
+            <b-dropdown-item>
+              <router-link to="#">ログアウト</router-link>
+            </b-dropdown-item>
           </b-nav-item-dropdown>
         </b-navbar-nav>
       </div>

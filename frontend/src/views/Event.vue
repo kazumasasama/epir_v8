@@ -1,5 +1,7 @@
 <template>
-  <Calendar />
+  <div class="container">
+    <Calendar />
+  </div>
 </template>
 
 <script>

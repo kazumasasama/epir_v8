@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div>
     <button type="button" class="btn btn-primary" @click="changeLocaleJa">
       日本語
     </button>
