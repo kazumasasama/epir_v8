@@ -9,7 +9,7 @@
         </div>
         <b-navbar-nav class="nav">
           <b-nav-item class="nav-item1">
-            <router-link to="/menu">
+            <router-link to="/menus">
               <b-icon icon="menu-button-fill"></b-icon>
               メニュー</router-link
             >
