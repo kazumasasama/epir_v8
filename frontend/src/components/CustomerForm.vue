@@ -4,7 +4,7 @@
       <b-form-group
         id="fieldset-1"
         description=""
-        label="連絡先をご記入ください（*必須）"
+        label="*必須"
         label-for="input-1"
         valid-feedback=""
         :invalid-feedback="invalidFeedback"
@@ -12,7 +12,7 @@
       >
         <b-row class="my-1">
           <b-col sm="2">
-            <label for="input-email">Email*</label>
+            <label for="input-email">*Email</label>
           </b-col>
           <b-col sm="10">
             <b-form-input
@@ -24,7 +24,7 @@
             ></b-form-input>
           </b-col>
           <b-col sm="2">
-            <label for="input-name">お名前*</label>
+            <label for="input-name">*名前</label>
           </b-col>
           <b-col sm="10">
             <b-form-input
@@ -36,7 +36,7 @@
             ></b-form-input>
           </b-col>
           <b-col sm="2">
-            <label for="input-phone">電話番号*</label>
+            <label for="input-phone">*電話番号</label>
           </b-col>
           <b-col sm="10">
             <b-form-input
@@ -52,12 +52,12 @@
       <b-form-group
         id="fieldset-2"
         description=""
-        label="よろしければ下記項目もご記入ください（任意）"
+        label="追加情報（任意）"
         label-for="input-2"
       >
         <b-row class="my-1">
           <b-col sm="2">
-            <label for="input-line">LINE:</label>
+            <label for="input-line">LINE</label>
           </b-col>
           <b-col sm="10">
             <b-form-input
@@ -68,18 +68,17 @@
             ></b-form-input>
           </b-col>
           <b-col sm="2">
-            <label for="input-birthday">生年月日:</label>
+            <label for="input-birthday">生年月日</label>
           </b-col>
           <b-col sm="10">
             <b-form-input
               id="input-birthday"
-              placeholder="例: 2021/01/01"
               v-model="customer.birthday"
               type="date"
             ></b-form-input>
           </b-col>
           <b-col sm="2">
-            <label for="input-gender">性別:</label>
+            <label for="input-gender">性別</label>
           </b-col>
           <b-col sm="10">
             <b-form-select
@@ -89,7 +88,7 @@
             ></b-form-select>
           </b-col>
           <b-col sm="2">
-            <label for="input-zip">郵便番号:</label>
+            <label for="input-zip">郵便番号</label>
           </b-col>
           <b-col sm="10">
             <b-form-input
@@ -99,7 +98,7 @@
             ></b-form-input>
           </b-col>
           <b-col sm="2">
-            <label for="input-address">ご住所:</label>
+            <label for="input-address">住所</label>
           </b-col>
           <b-col sm="10">
             <b-form-input
@@ -109,7 +108,7 @@
             ></b-form-input>
           </b-col>
           <b-col sm="2">
-            <label for="input-memo">ご要望など:</label>
+            <label for="input-memo">メモ</label>
           </b-col>
           <b-col sm="10">
             <b-form-textarea

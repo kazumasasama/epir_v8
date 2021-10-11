@@ -1,15 +1,15 @@
 <template>
   <div class="container">
     <div>
-      <b-button id="show-btn" @click="$bvModal.show('bv-modal-example')">
-        Open Modal
-      </b-button>
       <b-modal id="bv-modal-example" hide-header size="lg">
         <CustomerForm :form="form" />
-        <b-button class="mt-3" block @click="$bvModal.hide('bv-modal-example')">
-          Close Me
-        </b-button>
       </b-modal>
+    </div>
+    <h1>顧客一覧</h1>
+    <div class="customer-new-btn">
+      <b-button variant="outline-primary"
+        ><b-icon icon="person-plus"></b-icon> 新規登録</b-button
+      >
     </div>
     <CustomersTable />
   </div>
@@ -53,3 +53,17 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+h1 {
+  margin-top: 40px;
+  margin-bottom: 40px;
+  text-align: left;
+  font-size: 35px;
+  color: rgb(77, 77, 77);
+}
+.customer-new-btn {
+  text-align: left;
+  /* margin-bottom: 10px; */
+}
+</style>

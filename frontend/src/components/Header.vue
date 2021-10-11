@@ -9,9 +9,21 @@
         </div>
         <b-navbar-nav class="nav">
           <b-nav-item class="nav-item1">
-            <router-link to="/">メニュー選択</router-link> |
-            <router-link to="/event">ご予約カレンダー</router-link> |
-            <router-link to="/customers">顧客一覧</router-link>
+            <router-link to="/">
+              <b-icon icon="menu-button-fill"></b-icon>
+              メニュー</router-link
+            >
+            |
+            <router-link to="/event">
+              <b-icon icon="calendar-plus"></b-icon>
+              予約</router-link
+            >
+            |
+            <router-link to="/customers">
+              <b-icon icon="person-lines-fill"></b-icon>
+              顧客
+            </router-link>
+            |
           </b-nav-item>
           <b-nav-item-dropdown text="アカウント" right>
             <b-dropdown-item>
