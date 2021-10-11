@@ -157,7 +157,6 @@ export default {
           gender: "",
           zip: "",
           address: "",
-          memo: "",
           checked: [],
           show: false,
           options: [

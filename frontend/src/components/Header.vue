@@ -13,12 +13,6 @@
             <router-link to="/event">ご予約カレンダー</router-link> |
             <router-link to="/customers">顧客一覧</router-link>
           </b-nav-item>
-          <!-- Navbar dropdowns -->
-          <b-nav-item-dropdown text="言語設定" right>
-            <b-dropdown-item @click="switchToEn">ENG</b-dropdown-item>
-            <b-dropdown-item @click="switchToJa">日本語</b-dropdown-item>
-          </b-nav-item-dropdown>
-
           <b-nav-item-dropdown text="アカウント" right>
             <b-dropdown-item>
               <router-link to="/customer">アカウント</router-link>
@@ -34,16 +28,6 @@
 </template>
 
 <script>
-export default {
-  methods: {
-    switchToEn() {
-      this.$emit("switchToEn");
-    },
-    switchToJa() {
-      this.$emit("switchToJa");
-    },
-  },
-};
 </script>
 
 <style>

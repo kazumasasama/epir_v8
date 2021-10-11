@@ -1,16 +1,29 @@
 <template>
   <div class="container">
-    <CustomerForm :form="form" />
+    <div>
+      <b-button id="show-btn" @click="$bvModal.show('bv-modal-example')">
+        Open Modal
+      </b-button>
+      <b-modal id="bv-modal-example" hide-header size="lg">
+        <CustomerForm :form="form" />
+        <b-button class="mt-3" block @click="$bvModal.hide('bv-modal-example')">
+          Close Me
+        </b-button>
+      </b-modal>
+    </div>
+    <CustomersTable />
   </div>
 </template>
 
 <script>
 import CustomerForm from "@/components/CustomerForm.vue";
+import CustomersTable from "@/components/CustomersTable.vue";
 
 export default {
   name: "CustomersIndex",
   components: {
     CustomerForm,
+    CustomersTable,
   },
   data() {
     return {
