@@ -57,13 +57,13 @@ export default {
 <style scoped>
 h1 {
   margin-top: 40px;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
   text-align: left;
   font-size: 35px;
   color: rgb(77, 77, 77);
 }
 .customer-new-btn {
   text-align: left;
-  /* margin-bottom: 10px; */
+  margin-bottom: 10px;
 }
 </style>

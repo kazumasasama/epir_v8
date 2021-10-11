@@ -35,6 +35,10 @@
       hover
       @filtered="onFiltered"
     >
+      <template #cell(name)="row">
+        {{ row.value.first }} {{ row.value.last }}
+      </template>
+
       <template #cell(actions)="row">
         <b-button
           size="sm"
@@ -74,40 +78,60 @@ export default {
     return {
       perPage: 10,
       currentPage: 1,
-      sortBy: "name",
+      sortBy: "first_name",
       fields: [
         {
-          key: "danger",
-          label: "☆",
-          sortable: true,
-          class: "text-center",
-        },
-        {
-          key: "id",
-          label: "ID",
-          sortable: true,
-          sortDirection: "desc",
-        },
-        {
-          key: "name",
+          key: "title",
           label: "名前",
           sortable: true,
           sortDirection: "desc",
         },
         {
-          key: "age",
-          label: "Person age",
+          key: "duration",
+          label: "時間",
+          sortable: true,
+          class: "text-center",
+        },
+        {
+          key: "price",
+          label: "金額",
           sortable: true,
           class: "text-center",
         },
         { key: "actions", label: "" },
       ],
       items: [
-        { id: 1, age: 38, name: "aaaaa", danger: true },
-        { id: 2, age: 38, name: "bbbbb", danger: true },
-        { id: 3, age: 38, name: "11111", danger: true },
-        { id: 4, age: 38, name: "22222", danger: true },
-        { id: 5, age: 38, name: "*****", danger: true },
+        {
+          isActive: true,
+          age: 40,
+          name: { first: "Dickerson", last: "Macdonald" },
+          href: "#",
+        },
+        { isActive: false, age: 21, name: { first: "Larsen", last: "Shaw" } },
+        {
+          isActive: false,
+          age: 9,
+          name: { first: "Mini", last: "Navarro" },
+        },
+        { isActive: false, age: 89, name: { first: "Geneva", last: "Wilson" } },
+        { isActive: true, age: 38, name: { first: "Jami", last: "Carney" } },
+        { isActive: false, age: 27, name: { first: "Essie", last: "Dunlap" } },
+        { isActive: true, age: 40, name: { first: "Thor", last: "Macdonald" } },
+        { isActive: true, age: 27, name: { first: "高井", last: "一真" } },
+        { isActive: true, age: 40, name: { first: "高木", last: "一真" } },
+        {
+          isActive: true,
+          age: 87,
+          name: { first: "Larsen", last: "Shaw" },
+        },
+        { isActive: false, age: 26, name: { first: "Mitzi", last: "Navarro" } },
+        {
+          isActive: false,
+          age: 22,
+          name: { first: "Genevieve", last: "Wilson" },
+        },
+        { isActive: true, age: 38, name: { first: "John", last: "Carney" } },
+        { isActive: false, age: 29, name: { first: "Dick", last: "Dunlap" } },
       ],
     };
   },
