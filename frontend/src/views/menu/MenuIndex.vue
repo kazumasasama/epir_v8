@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import axios from "axios";
+import axios from "@/utils/axios";
 // @ is an alias to /src
 import MenuTable from "@/views/menu/components/MenuTable.vue";
 
@@ -31,8 +31,6 @@ export default {
       perPage: 10,
       currentPage: 1,
       sortBy: "title",
-      menu: {},
-      menus: [],
       menuInfo: {},
       menuInfoBool: false,
       fields: [
@@ -58,11 +56,13 @@ export default {
       ],
     };
   },
-  mounted: function () {
-    axios
-      .get("/api/menus/index-menus.json")
-      .then((response) => (this.menus = response.data))
-      .catch((error) => console.log(error));
+  mounted() {
+    this.$store.dispatch("getMenus");
+  },
+  computed: {
+    menus: function () {
+      return this.$store.state.menus;
+    },
   },
   methods: {
     fetchMenus() {
