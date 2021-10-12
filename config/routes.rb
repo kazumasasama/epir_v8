@@ -8,6 +8,6 @@ Rails.application.routes.draw do
   end
 
   namespace :api do
-    resources :menus, only: [:index]
+    resources :menus, only: [:index, :show]
   end
 end

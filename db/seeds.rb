@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Menu.create([
+Menu.create!([
   { title: 'VIO', description: '介護脱毛でのご利用も多いですよ', price: '10800', duration: '003:00:00' },
   { title: '全身', description: 'ツルツル', price: '48000', duration: '003:00:00' },
   { title: 'Sパーツ', description: 'V O えりあし　鼻下', price: '3300', duration: '003:00:00' },
