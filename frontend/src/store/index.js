@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import axios from 'axios'
+const axios = require('axios');
 
 Vue.use(Vuex)
 
@@ -11,7 +11,7 @@ export default new Vuex.Store({
   mutations: {
     setMenus: function(state,menus) {
       state.menus = menus
-    }
+    },
   },
   actions: {
     // getMenus(state) {
@@ -29,7 +29,7 @@ export default new Vuex.Store({
           .then(response => {
             commit('setMenus',response.data)
           })
-    }
+    },
   },
   modules: {
   }

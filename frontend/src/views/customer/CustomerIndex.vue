@@ -8,7 +8,9 @@
     <h1>顧客一覧</h1>
     <div class="customer-new-btn">
       <b-button variant="outline-primary"
-        ><b-icon icon="person-plus"></b-icon> 新規登録</b-button
+        ><router-link :to="'/customers/new'"
+          ><b-icon icon="person-plus"></b-icon> 新規登録</router-link
+        ></b-button
       >
     </div>
     <CustomersTable />
@@ -16,8 +18,8 @@
 </template>
 
 <script>
-import CustomerForm from "@/components/CustomerForm.vue";
-import CustomersTable from "@/components/CustomersTable.vue";
+import CustomerForm from "./components/CustomerForm.vue";
+import CustomersTable from "./components/CustomersTable.vue";
 
 export default {
   name: "CustomerIndex",

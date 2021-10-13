@@ -171,57 +171,6 @@ export default {
       },
     },
   },
-  // data() {
-  //   return {
-  //     selected: null,
-  //     options: [
-  //       { value: null, text: "未選択" },
-  //       { value: "男性", text: "男性" },
-  //       { value: "女性", text: "女性" },
-  //       { value: "不詳", text: "不詳" },
-  //       { value: "その他", text: "その他" },
-  //       { value: "該当なし", text: "該当なし" },
-  //     ],
-  //   };
-  // },
-  computed: {
-    state() {
-      return (
-        this.customer.name.length >= 2 &&
-        this.customer.email.length >= 5 &&
-        this.customer.phone.length >= 10
-      );
-    },
-    invalidFeedback() {
-      if (
-        this.customer.email.length > 0 &&
-        this.customer.name.length > 0 &&
-        this.customer.phone.length > 0
-      ) {
-        return "入力に誤りがあります";
-      }
-      return "未記入の必須項目があります";
-    },
-  },
-  methods: {
-    onSubmit(event) {
-      event.preventDefault();
-      alert(JSON.stringify(this.customer));
-    },
-    onReset(event) {
-      event.preventDefault();
-      // Reset our form values
-      this.customer.email = "";
-      this.customer.name = "";
-      this.customer.food = null;
-      this.customer.checked = [];
-      // Trick to reset/clear native browser form validation state
-      this.show = false;
-      this.$nextTick(() => {
-        this.show = true;
-      });
-    },
-  },
 };
 </script>
 

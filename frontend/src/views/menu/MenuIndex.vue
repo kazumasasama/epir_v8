@@ -1,25 +1,20 @@
 <template>
   <div class="home container">
-    <div>
-      <b-modal id="bv-modal-example" hide-header size="lg"> </b-modal>
-    </div>
     <h1>メニュー一覧</h1>
-    <div class="customer-new-btn">
-      <b-button variant="outline-primary"
-        ><b-icon icon="person-plus"></b-icon> 新規登録</b-button
-      >
+    <div class="menu-new-btn">
+      <b-button variant="outline-primary">
+        <router-link :to="'/menus/new'">
+          <b-icon icon="person-plus"></b-icon>
+          新規登録
+        </router-link>
+      </b-button>
     </div>
-    <MenuTable :items="menus" :fields="fields" />
-    <ul>
-      <li v-for="menu in menus" :key="menu.id">{{ menu.name }}</li>
-    </ul>
+    <MenuTable :menus="menus" :fields="fields" />
   </div>
 </template>
 
 <script>
-import axios from "@/utils/axios";
-// @ is an alias to /src
-import MenuTable from "@/views/menu/components/MenuTable.vue";
+import MenuTable from "./components/MenuTable.vue";
 
 export default {
   name: "MenuIndex",
@@ -28,31 +23,10 @@ export default {
   },
   data() {
     return {
-      perPage: 10,
-      currentPage: 1,
-      sortBy: "title",
-      menuInfo: {},
-      menuInfoBool: false,
       fields: [
-        {
-          key: "title",
-          label: "名前",
-          sortable: true,
-          sortDirection: "desc",
-        },
-        {
-          key: "duration",
-          label: "時間",
-          sortable: true,
-          class: "text-center",
-        },
-        {
-          key: "price",
-          label: "金額",
-          sortable: true,
-          class: "text-center",
-        },
-        { key: "actions", label: "" },
+        { key: "title", label: "メニュー" },
+        { key: "price", label: "価格" },
+        { key: "duration", label: "時間" },
       ],
     };
   },
@@ -63,26 +37,6 @@ export default {
   },
   mounted() {
     this.$store.dispatch("getMenus");
-  },
-  methods: {
-    fetchMenus() {
-      axios.get("/api/menus").then(
-        (res) => {
-          for (var i = 0; i < res.data.menus.length; i++) {
-            this.menus.push(res.data.menus[i]);
-          }
-        },
-        (error) => {
-          console.log(error);
-        }
-      );
-    },
-    setMenuInfo(id) {
-      axios.get(`api/menus/${id}.json`).then((res) => {
-        this.menuInfo = res.data;
-        this.menuInfoBool = true;
-      });
-    },
   },
 };
 </script>
@@ -95,7 +49,7 @@ h1 {
   font-size: 35px;
   color: rgb(77, 77, 77);
 }
-.customer-new-btn {
+.menu-new-btn {
   text-align: left;
   margin-bottom: 10px;
 }

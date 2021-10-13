@@ -7,10 +7,10 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 menus = Menu.create!([
-  { title: 'VIO', description: '介護脱毛でのご利用も多いですよ', price: '10800', duration: '003:00:00' },
-  { title: '全身', description: 'ツルツル', price: '48000', duration: '003:00:00' },
-  { title: 'Sパーツ', description: 'V O えりあし　鼻下', price: '3300', duration: '003:00:00' },
-  { title: 'Mパーツ', description: 'ひざ下', price: '5500', duration: '003:00:00' },
-  { title: 'Lパーツ', description: '背中　ヒップ', price: '8800', duration: '003:00:00' },
+  { title: 'VIO', description: '介護脱毛でのご利用も多いですよ', price: '10800', duration: '03:00' },
+  { title: '全身', description: 'ツルツル', price: '48000', duration: '03:00' },
+  { title: 'Sパーツ', description: 'V O えりあし　鼻下', price: '3300', duration: '01:00' },
+  { title: 'Mパーツ', description: 'ひざ下', price: '5500', duration: '01:30' },
+  { title: 'Lパーツ', description: '背中　ヒップ', price: '8800', duration: '02:00' },
 ])
 

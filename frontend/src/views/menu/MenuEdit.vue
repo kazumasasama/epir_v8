@@ -2,6 +2,6 @@
 
 <script>
 export default {
-  name: "ShowMenu",
+  name: "MenuEdit",
 };
 </script>

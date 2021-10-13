@@ -31,5 +31,8 @@ module EpirV8
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
+
+    config.time_zone = 'Tokyo'
+    config.active_record.time_zone_aware_types = [:time]
   end
 end

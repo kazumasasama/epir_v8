@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  devise_for :accounts
   namespace :api, format: "json" do
     namespace :v1 do
       mount_devise_token_auth_for "User", at: "auth", controllers: {
@@ -9,7 +8,8 @@ Rails.application.routes.draw do
   end
 
   namespace :api do
-    resources :menus, only: [:index, :show]
+    resources :menus, only: [:index, :show, :new, :edit]
+    resources :customers, only: [:index, :show, :new, :edit]
     post '/login', to: 'session#log_in'
     post '/logout', to: 'session#log_out'
     get  '/account', to: 'accounts#show'
