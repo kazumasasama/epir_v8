@@ -14,15 +14,21 @@ export default new Vuex.Store({
     }
   },
   actions: {
-    getMenus(state) {
-      state.menus = [];
-      axios.get('/api/menus').then((res) => {
-        for(var i = 0; i < res.data.menus.length; i++) {
-          state.menus.push(res.data.menus[i]);
-        }
-      }, (error) => {
-        console.log(error);
-      });
+    // getMenus(state) {
+    //   state.menus = [];
+    //   axios.get('/api/menus').then((res) => {
+    //     for(var i = 0; i < res.data.menus.length; i++) {
+    //       state.menus.push(res.data.menus[i]);
+    //     }
+    //   }, (error) => {
+    //     console.log(error);
+    //   });
+    // }
+    getMenus: function({commit}){
+      return axios.get('/api/menus')
+          .then(response => {
+            commit('setMenus',response.data)
+          })
     }
   },
   modules: {

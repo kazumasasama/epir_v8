@@ -1,35 +1,44 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
+import Event from '../views/Event.vue'
+import CustomerIndex from '../views/CustomerIndex.vue'
+import MenuIndex from '../views/menu/MenuIndex.vue'
+import Index from "../views/Index.vue";
+import Login from "../views/Login.vue";
 
 Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/',
+    path: "/",
+    name: "Index",
+    component: Index,
+  },
+  {
+    path: "/login",
+    name: "Login",
+    component: Login,
+  },
+  {
+    path: '/home',
     name: 'Home',
     component: Home
   },
   {
     path: '/event',
     name: 'Event',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/Event.vue')
+    component: Event
   },
   {
     path: '/customers',
-    name: 'CustomersIndex',
-    component: () => import(/* webpackChunkName: "about" */ '../views/CustomersIndex.vue')
+    name: 'CustomerIndex',
+    component: CustomerIndex
   },
   {
     path: '/menus',
     name: 'MenuIndex',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/menu/MenuIndex.vue'),
+    component: MenuIndex,
     // redirect: '/menus/index',
     children: [
       {
@@ -60,7 +69,7 @@ const routes = [
 const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
-  routes
-})
+  routes,
+});
 
-export default router
+export default router;

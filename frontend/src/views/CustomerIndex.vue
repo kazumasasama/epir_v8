@@ -20,7 +20,7 @@ import CustomerForm from "@/components/CustomerForm.vue";
 import CustomersTable from "@/components/CustomersTable.vue";
 
 export default {
-  name: "CustomersIndex",
+  name: "CustomerIndex",
   components: {
     CustomerForm,
     CustomersTable,

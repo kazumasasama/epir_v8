@@ -1,18 +1,45 @@
 <template>
-  <div class="home container">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+  <div class="home">
+    <span>{{ email }}</span>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
+import axios from "@/utils/axios";
 
 export default {
   name: "Home",
-  components: {
-    HelloWorld,
+  data() {
+    return {
+      email: "",
+    };
+  },
+  methods: {
+    async getAccountData() {
+      const result = await axios.get("/api/account").catch((e) => {
+        console.error(e);
+      });
+
+      if (!result) {
+        // エラーの場合ログイン画面へ遷移させる
+        this.redirectLogin();
+        return;
+      }
+      if (!result.data.email) {
+        // エラーの場合ログイン画面へ遷移させる
+        this.redirectLogin();
+        return;
+      }
+
+      this.email = result.data.email;
+    },
+    redirectLogin() {
+      //ページ遷移
+      this.$router.push("/login");
+    },
+  },
+  async mounted() {
+    this.getAccountData();
   },
 };
 </script>

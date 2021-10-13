@@ -56,13 +56,13 @@ export default {
       ],
     };
   },
-  mounted() {
-    this.$store.dispatch("getMenus");
-  },
   computed: {
     menus: function () {
       return this.$store.state.menus;
     },
+  },
+  mounted() {
+    this.$store.dispatch("getMenus");
   },
   methods: {
     fetchMenus() {
