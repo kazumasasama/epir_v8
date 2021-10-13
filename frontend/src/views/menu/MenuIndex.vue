@@ -24,9 +24,28 @@ export default {
   data() {
     return {
       fields: [
-        { key: "title", label: "メニュー" },
-        { key: "price", label: "価格" },
-        { key: "duration", label: "時間" },
+        {
+          key: "title",
+          label: "メニュー",
+          sortable: true,
+          sortByFormatted: true,
+          filterByFormatted: true,
+        },
+        {
+          key: "price",
+          label: "価格",
+          sortable: true,
+          sortByFormatted: true,
+          filterByFormatted: true,
+        },
+        {
+          key: "duration",
+          label: "時間",
+          sortable: true,
+          sortByFormatted: true,
+          filterByFormatted: true,
+        },
+        { key: "actions", label: "" },
       ],
     };
   },

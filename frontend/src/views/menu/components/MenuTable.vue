@@ -1,6 +1,13 @@
 <template>
   <div class="overflow-auto">
-    <b-table striped hover :items="menus" :fields="fields"></b-table>
+    <b-table hover selectable row-clicked :items="menus" :fields="fields">
+      <template #cell(actions)="row">
+        <b-button size="sm" class="mr-1"> 編集 </b-button>
+        <b-button size="sm" @click="row.toggleDetails">
+          {{ row.detailsShowing ? "閉じる" : "詳細" }}
+        </b-button>
+      </template>
+    </b-table>
   </div>
 </template>
 
