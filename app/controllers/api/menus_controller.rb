@@ -1,5 +1,4 @@
 class Api::MenusController < ApplicationController
-  protect_from_forgery except: [:create, :update]
   before_action :set_menu, only: %i[ show edit update destroy ]
 
   def index
