@@ -1,4 +1,7 @@
 class Api::MenusController < ApplicationController
+  protect_from_forgery except: [:create, :update]
+  before_action :set_menu, only: %i[ show edit update destroy ]
+
   def index
     @menus = Menu.all
     render json: @menus
@@ -12,12 +15,15 @@ class Api::MenusController < ApplicationController
   def new
     @menu = Menu.new
   end
-  
+
   def create
     @menu = Menu.new(menu_params)
     if @menu.save
-      render json: @customer
+      render json: @menu
     end
+  end
+
+  def edit
   end
 
   def update
@@ -27,11 +33,19 @@ class Api::MenusController < ApplicationController
     end
   end
 
-  private
-  # Only allow a list of trusted parameters through.
-  def menu_params
-    params.fetch(:menu, {}).permit(
-      :id, :title, :description, :price, :duration,
-    )
+  def destroy
+    Menu.find(params[:id]).destroy
+    render json: { status: "SUCCESS", message: "Menu removed"}
   end
+
+  private
+    def set_menu
+      @menu = Menu.find(params[:id])
+    end
+    # Only allow a list of trusted parameters through.
+    def menu_params
+      params.fetch(:menu, {}).permit(
+        :id, :title, :description, :price, :duration,
+      )
+    end
 end

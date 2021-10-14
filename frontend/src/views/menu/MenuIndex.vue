@@ -1,6 +1,6 @@
 <template>
   <div class="home container">
-    <h1>メニュー一覧</h1>
+    <h1>施術メニュー</h1>
     <div class="menu-new-btn">
       <b-button variant="outline-primary">
         <router-link :to="'/menus/new'">
@@ -8,6 +8,7 @@
           新規登録
         </router-link>
       </b-button>
+      <router-view></router-view>
     </div>
     <MenuTable :menus="menus" :fields="fields" />
   </div>

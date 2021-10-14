@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   end
 
   namespace :api do
-    resources :menus, only: [:index, :show, :new, :edit]
+    resources :menus, only: [:index, :show, :new, :edit, :create]
     resources :customers, only: [:index, :show, :new, :edit]
     post '/login', to: 'session#log_in'
     post '/logout', to: 'session#log_out'

@@ -4,6 +4,7 @@ import Home from '../views/Home.vue'
 import Event from '../views/Event.vue'
 import CustomerIndex from '../views/customer/CustomerIndex.vue'
 import MenuIndex from '../views/menu/MenuIndex.vue'
+import MenuNew from '@/views/menu/MenuNew'
 import Index from "../views/Index.vue";
 import Login from "../views/Login.vue";
 
@@ -56,21 +57,28 @@ const routes = [
         hidden: true
       },
       {
-        path: 'new',
-        component: () => import('@/views/menu/MenuNew'),
-        name: 'MenuNew',
-        meta: { title: 'new_menu' },
-        // hidden: true
-      },
-      {
         path: 'edit',
         component: () => import('@/views/menu/MenuEdit'),
         name: 'MenuEdit',
         meta: { title: 'edit_menu', noCache: true },
         hidden: true
-      }
+      },
+      // {
+      //   path: 'new',
+      //   component: MenuNew,
+      //   name: 'MenuNew',
+      //   meta: { title: 'new_menu' },
+      //   // hidden: true
+      // },
     ]
-  }
+  },
+  {
+    path: '/menus/new',
+    component: MenuNew,
+    name: 'MenuNew',
+    meta: { title: 'new_menu' },
+    // hidden: true
+  },
 ]
 
 const router = new VueRouter({
