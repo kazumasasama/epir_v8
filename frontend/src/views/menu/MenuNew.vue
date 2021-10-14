@@ -1,15 +1,16 @@
 <template>
   <div class="container">
-    <MenuForm :form="form" @handleSubmit="handleSubmit" @onReset="onReset" />
-    <h1>this is Menu New page</h1>
+    <h1>施術メニュー登録</h1>
+    <MenuForm :form="form" @handleSubmit="handleSubmit" />
   </div>
 </template>
 
 <script>
 import MenuForm from "./components/MenuForm.vue";
+
 export default {
   name: "MenuNew",
-  component: {
+  components: {
     MenuForm,
   },
   data() {
@@ -20,22 +21,19 @@ export default {
   methods: {
     handleSubmit() {
       if (!this.form.title) return;
-      this.$store.dispatch("index/createMenu", this.form);
+      this.$store.dispatch("createMenu", this.form);
       this.$router.push({ path: "/menus" });
-    },
-    onReset(event) {
-      event.preventDefault();
-      // Reset our form values
-      this.form.title = "";
-      this.form.price = "";
-      this.form.duration = "";
-      this.form.description = "";
-      // Trick to reset/clear native browser form validation state
-      this.show = false;
-      this.$nextTick(() => {
-        this.show = true;
-      });
     },
   },
 };
 </script>
+
+<style scoped>
+h1 {
+  margin-top: 40px;
+  margin-bottom: 30px;
+  text-align: left;
+  font-size: 35px;
+  color: rgb(77, 77, 77);
+}
+</style>

@@ -8,7 +8,6 @@ export default new Vuex.Store({
   state: {
     menus: [],
     menu: {},
-    form: {},
   },
   mutations: {
     setMenus: function(state,menus) {

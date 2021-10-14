@@ -1,5 +1,5 @@
 <template>
-  <div class="home container">
+  <div class="container">
     <h1>施術メニュー</h1>
     <div class="menu-new-btn">
       <b-button variant="outline-primary">

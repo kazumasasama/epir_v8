@@ -3,14 +3,21 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Event from '../views/Event.vue'
 import CustomerIndex from '../views/customer/CustomerIndex.vue'
+import CustomerNew from '../views/customer/CustomerNew.vue'
 import MenuIndex from '../views/menu/MenuIndex.vue'
-import MenuNew from '@/views/menu/MenuNew'
-import Index from "../views/Index.vue";
-import Login from "../views/Login.vue";
+import MenuNew from '@/views/menu/MenuNew.vue'
+import Index from "../views/Index.vue"
+import Login from "../views/Login.vue"
+// import NotFound from "@/views/NotFound.vue"
 
 Vue.use(VueRouter)
 
 const routes = [
+  // {
+  //   path: '*',
+  //   name: "error404",
+  //   component: NotFound,
+  // },
   {
     path: "/",
     name: "Index",
@@ -35,49 +42,21 @@ const routes = [
     path: '/customers',
     name: 'CustomerIndex',
     component: CustomerIndex,
-    children: [
-      {
-        path: 'new',
-        component: () => import('@/views/customer/CustomerNew'),
-        name: 'CustomerNew',
-        meta: { title: 'new_customer', noCache: true },
-      },
-    ]
+  },
+  {
+    path: '/customers/new',
+    name: 'CustomerNew',
+    component: CustomerNew,
   },
   {
     path: '/menus',
     name: 'MenuIndex',
     component: MenuIndex,
-    children: [
-      {
-        path: 'show',
-        component: () => import('@/views/menu/MenuShow'),
-        name: 'MenuShow',
-        meta: { title: 'show_menu', icon: 'user', noCache: true },
-        hidden: true
-      },
-      {
-        path: 'edit',
-        component: () => import('@/views/menu/MenuEdit'),
-        name: 'MenuEdit',
-        meta: { title: 'edit_menu', noCache: true },
-        hidden: true
-      },
-      // {
-      //   path: 'new',
-      //   component: MenuNew,
-      //   name: 'MenuNew',
-      //   meta: { title: 'new_menu' },
-      //   // hidden: true
-      // },
-    ]
   },
   {
     path: '/menus/new',
-    component: MenuNew,
     name: 'MenuNew',
-    meta: { title: 'new_menu' },
-    // hidden: true
+    component: MenuNew,
   },
 ]
 
