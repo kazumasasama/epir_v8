@@ -8,11 +8,15 @@ export default new Vuex.Store({
   state: {
     menus: [],
     menu: {},
+    form: {},
   },
   mutations: {
     setMenus: function(state,menus) {
       state.menus = menus
     },
+    setMenu: function(state,menu) {
+      state.form = menu
+    }
   },
   actions: {
     getMenus: function({commit}){
@@ -26,11 +30,14 @@ export default new Vuex.Store({
       axios.post('/api/menus/create', {
         menu: this.state.form
       })
-      .then(function () {
-        this.$router.push({ path: '/menus' });
+      .then(response => {
+        commit('setMenu',response.data)
       })
       .catch(function (error) {
         console.log(error);
+      })
+      .then(function () {
+        this.$router.push({ path: '/menus' });
       });
     }
   },

@@ -1,12 +1,17 @@
 <template>
   <div class="container">
     <h1>施術メニュー登録</h1>
-    <MenuForm :form="form" @handleSubmit="handleSubmit" />
+    <MenuForm
+      :form="form"
+      @handleSubmit="handleSubmit"
+      @handleCancel="handleCancel"
+    />
   </div>
 </template>
 
 <script>
 import MenuForm from "./components/MenuForm.vue";
+const axios = require("axios");
 
 export default {
   name: "MenuNew",
@@ -21,7 +26,18 @@ export default {
   methods: {
     handleSubmit() {
       if (!this.form.title) return;
-      this.$store.dispatch("createMenu", this.form);
+      axios
+        .post("/api/menus", {
+          menu: this.form,
+        })
+        .then(function () {
+          this.$router.push({ path: "/menus" });
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    },
+    handleCancel() {
       this.$router.push({ path: "/menus" });
     },
   },
