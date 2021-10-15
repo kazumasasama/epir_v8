@@ -25,9 +25,9 @@ export default new Vuex.Store({
             commit('setMenus',response.data)
           })
     },
-    createMenu: function () {
+    createMenu: function ({commit}) {
       if (!this.state.form.title) return;
-      axios.post('/api/menus/create', {
+      axios.post('/api/menus', {
         menu: this.state.form
       })
       .then(response => {
@@ -36,9 +36,6 @@ export default new Vuex.Store({
       .catch(function (error) {
         console.log(error);
       })
-      .then(function () {
-        this.$router.push({ path: '/menus' });
-      });
     }
   },
   modules: {

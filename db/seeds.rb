@@ -14,3 +14,6 @@ menus = Menu.create!([
   { title: 'Lパーツ', description: '背中　ヒップ', price: '8800', duration: '02:00' },
 ])
 
+accounts = Account.create!([
+  { name: 'epiR-Azumi', birthday: '2021-10-10', gender: 'Female', phone1: '090-1234-5678', email:'test@example.com', line_id:'epiR_soshigaya', zip:'123-4567', prefecture:'TOKYO', address:'Setagaya, Kinuta', event_id:'1', memo:'メモだよ', customer_note:'ノートだよ', danger:'true', password:'password'},
+])

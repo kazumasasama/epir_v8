@@ -11,7 +11,6 @@
 
 <script>
 import MenuForm from "./components/MenuForm.vue";
-const axios = require("axios");
 
 export default {
   name: "MenuNew",
@@ -25,17 +24,10 @@ export default {
   },
   methods: {
     handleSubmit() {
-      if (!this.form.title) return;
-      axios
-        .post("/api/menus", {
-          menu: this.form,
-        })
-        .then(function () {
-          this.$router.push({ path: "/menus" });
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
+      if (!this.form.name) return;
+      // store/modules/customerのアクションcreateCustomerを呼び出し、
+      this.$store.dispatch("index/createMenu", this.form);
+      this.$router.push({ path: "/menus" });
     },
     handleCancel() {
       this.$router.push({ path: "/menus" });

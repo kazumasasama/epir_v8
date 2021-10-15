@@ -2,8 +2,8 @@
   <div>
     <b-form
       class="menu-form"
-      @submit="onSubmit"
-      @reset="onReset"
+      @submit="handleSubmit"
+      @reset="handleCancel"
       v-model="form"
     >
       <b-row class="my-1">
@@ -53,16 +53,10 @@
           ></b-form-textarea>
         </b-col>
       </b-row>
-      <b-button
-        class="submit-btn"
-        type="submit"
-        variant="outline-primary"
-        @click="handleSubmit"
+      <b-button class="submit-btn" type="submit" variant="outline-primary"
         >登録する</b-button
       >
-      <b-button type="button" variant="outline-danger" @click="handleCancel"
-        >キャンセル</b-button
-      >
+      <b-button type="reset" variant="outline-danger">キャンセル</b-button>
     </b-form>
     <b-card class="mt-3" header="Form Data Result">
       <pre class="m-0">{{ form }}</pre>
